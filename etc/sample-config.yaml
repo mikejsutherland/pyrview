@@ -1,0 +1,4 @@
+---
+data:
+    source: # Source of the data: (file path, url)
+    type: # Type of data to fetch: (file, http)
