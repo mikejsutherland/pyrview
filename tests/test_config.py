@@ -1,11 +1,11 @@
 import unittest
 
-from pyrview import config
+from pyrview.config import Config
 
 class LoadConfig(unittest.TestCase):
 
     def setUp(self):
-        self.config = config.Load()
+        self.config = Config()
         self.document = self.config.document
 
     def test_document(self):

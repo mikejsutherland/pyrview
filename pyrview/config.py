@@ -2,7 +2,7 @@ from jsonschema import validate
 import yaml
 import os
 
-class Load(object):
+class Config(object):
 
     def __init__(self, cfg='etc/config.yaml'):
         path = os.path.dirname(os.path.realpath(__file__))
