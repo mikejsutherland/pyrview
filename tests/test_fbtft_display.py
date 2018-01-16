@@ -16,5 +16,4 @@ class FBTFTDisplayMethods(unittest.TestCase):
         self.assertFalse(self.display.backlight)
 
 if __name__ == '__main__':
-    print(PYTHONPATH)
     unittest.main()
