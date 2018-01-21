@@ -1,4 +1,5 @@
-*.pyc
+__pycache__/
+*.py[cod]
 .sync-config.cson
 required.txt
 etc/config.yaml
