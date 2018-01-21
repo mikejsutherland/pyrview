@@ -1,3 +1,4 @@
 *.pyc
 .sync-config.cson
+required.txt
 etc/config.yaml
