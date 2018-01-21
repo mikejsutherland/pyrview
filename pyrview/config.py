@@ -1,29 +1,30 @@
-from jsonschema import validate
-import yaml
+import jsonschema
 import os
+import yaml
+
+module_path =  os.path.dirname(os.path.realpath(__file__))
+project_path = os.path.abspath(module_path + os.sep + '..')
+
+cfg_fn = project_path + '/etc/config.yaml'
+schema_fn = project_path + '/etc/schemas/config-schema.yaml'
 
 class Config(object):
 
-    def __init__(self, cfg='etc/config.yaml'):
-        path = os.path.dirname(os.path.realpath(__file__))
-        self.dir = os.path.abspath(path + os.sep + '..')
-        self.cfg_path = self.dir + os.sep + cfg
-        self.schema_path = self.dir + os.sep + 'etc/config-schema.yaml'
-        # Load the schema and config yaml files
-        self.schema = self._load_yaml_document(self.schema_path)
-        self.document = self._load_yaml_document(self.cfg_path)
-        # Validate the config to the schema
-        self._validate_document()
+    def __init__(self, cfg=cfg_fn, schema=schema_fn):
 
-    def _load_yaml_document(self, fn):
+        # Load the schema and config yaml files
+        self.schema = self.get_yaml_file(schema)
+        self.document = self.get_yaml_file(cfg)
+
+        # Validate the config to the schema
         try:
-            with open(fn, 'r') as yamlfile:
-                return yaml.load(yamlfile)
+            jsonschema.validate(self.document, self.schema)
         except:
             raise
 
-    def _validate_document(self):
+    def get_yaml_file(self, fn):
         try:
-            validate(self.document, self.schema)
+            with open(fn, 'r') as yamlfile:
+                return yaml.load(yamlfile)
         except:
             raise
