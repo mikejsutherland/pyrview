@@ -1,3 +1,4 @@
+import jsonschema
 
 class Data(object):
 
@@ -7,6 +8,12 @@ class Data(object):
             self.type = document['data']['type']
         else:
             raise ValueError('Missing or undefined config document')
+
+    def validate(self):
+        try:
+            jsonschema.validate(self.data, self.schema)
+        except:
+            raise
 
     def get(self):
         pass
