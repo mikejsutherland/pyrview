@@ -1,4 +1,5 @@
 import unittest
+import context
 
 from pyrview.config import Config
 

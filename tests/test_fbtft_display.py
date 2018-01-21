@@ -1,6 +1,7 @@
 import unittest
+import context
 
-from display.fbtft import Display
+from pyrview.display.fbtft import Display
 
 class FBTFTDisplayMethods(unittest.TestCase):
 
