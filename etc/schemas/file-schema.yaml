@@ -1,0 +1,17 @@
+---
+type: array
+items:
+    type: object
+    required: [ 'name', 'status' ]
+    properties:
+        name: { type: string }
+        status: { type: integer }
+        resources:
+            type: array
+            items:
+                type: object
+                required: [ 'name', 'value', 'status' ]
+                properties:
+                    name: { type: string }
+                    value: { type: string }
+                    status: { type: integer }
