@@ -2,10 +2,10 @@
 type: array
 items:
     type: object
-    required: [ 'name', 'status' ]
+    required: [ 'name' ]
     properties:
         name: { type: string }
-        status: { type: integer }
+        #status: { type: integer }
         resources:
             type: array
             items:
