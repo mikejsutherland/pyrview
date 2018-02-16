@@ -1,0 +1,4 @@
+---
+data:
+    source: http://localhost:8080/state
+    type: nagios-api
