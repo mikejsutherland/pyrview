@@ -2,4 +2,7 @@ language: python
 python:
   - "3.6"
   - "nightly"
-script: python tests/run.py
+install:
+  - pip install -r requirements.txt
+script:
+  - python -m unittest discover -s tests/ -v
