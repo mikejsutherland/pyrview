@@ -13,7 +13,6 @@ path = os.path.dirname(os.path.realpath(__file__));
 class TestFile(unittest.TestCase):
 
     def setUp(self):
-        #path = os.path.dirname(os.path.realpath(__file__));
         self.document = {
             "data": {
                 "source": path + "/data/data.json",
@@ -57,7 +56,7 @@ class TestFile(unittest.TestCase):
 class TestNagiosAPI(unittest.TestCase):
 
     def setUp(self):
-        config = Config()
+        config = Config(path + "/etc/config.yaml")
         self.document = config.document
         self.nagios_api = NagiosAPI(self.document)
 

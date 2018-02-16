@@ -1,12 +1,15 @@
 import unittest
 import context
+import os
 
 from pyrview.config import Config
+
+path = os.path.dirname(os.path.realpath(__file__));
 
 class LoadConfig(unittest.TestCase):
 
     def setUp(self):
-        self.config = Config()
+        self.config = Config(path + "/etc/config.yaml")
         self.document = self.config.document
 
     def test_document(self):
