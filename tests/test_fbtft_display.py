@@ -1,6 +1,10 @@
 import unittest
 import context
 
+from unittest.mock import MagicMock
+import sys
+sys.modules["RPi"] = MagicMock()
+
 from pyrview.display.fbtft import Display
 
 class FBTFTDisplayMethods(unittest.TestCase):
